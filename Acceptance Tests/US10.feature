@@ -11,4 +11,5 @@ Feature: Calificacion de los curriculums por otros usuarios
         Examples: Datos de entrada
         |Calificar curriculums|
         |4|
+        |Comentario|
         |Me encanta el diseño que has utilizado en tu curriculum|
