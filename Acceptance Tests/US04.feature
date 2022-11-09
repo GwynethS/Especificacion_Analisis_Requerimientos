@@ -8,4 +8,4 @@ Feature: Plantillas para el desarrollo de un curriculum
         And el usuario pueda visualizar diversas estructuras que hay dentro de cada una
 
         Examples: Datos de salida
-        |Plantillas para currículums|
+        |Plantillas para curriculums|
