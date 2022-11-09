@@ -1,4 +1,4 @@
-Feature: Notificación de comentarios propuestos por usuarios dentro de la plataforma
+Feature: Notificacion de comentarios propuestos por usuarios dentro de la plataforma
 
     Scenario: El usuario recibe notificaciones sobre comentarios de otros usuarios
 
