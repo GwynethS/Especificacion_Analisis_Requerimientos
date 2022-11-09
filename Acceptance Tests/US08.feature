@@ -1,8 +1,8 @@
-Feature: Opción de compartir un curriculum
+Feature: Opcion de compartir un curriculum
 
-    Scenario: El usuario desea compartir su currículum
+    Scenario: El usuario desea compartir su curriculum
     
-        Given el sistema muestra la seccion “Currículums”
+        Given el sistema muestra la seccion “Curriculums”
         When el usuario seleccione la opcion “Plantillas"
         And termine de diseñar su respectivo curriculum
         Then el sistema muestra el mensaje <¿Desea compartir su curriculum con otros usuarios?>
