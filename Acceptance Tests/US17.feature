@@ -1,31 +1,26 @@
-Feature: Seleccion del horario de la asesoria
+Feature: Inicio de sesion de usuario en la plataforma
 
-    Scenario: usuario visualiza horarios semanales para una asesoria virtual
+    Scenario: El usuario visualiza el formulario de inicio de sesion en la plataforma 
 
-        Given que el usuario cuenta con el rol de usuario registrado 
-
-        When el usuario selecciona la seccion “Asesorias” 
-
-        Then el sistema muestra un <calendario por semana> con los horarios disponibles para realizar una reserva
-
-        And el sistema muestra dos botones  "Semana" y "Mes" en la esquina superior derecha de la pantalla
+        Given el usuario cuenta con el rol de usuario no registrado
+        When el usuario selecciona el icono de Perfil
+        Then el sistema muestra un formulario con los campos <Usuario / Asesor>, <Email> y <Password> los cuales son requeridos
+        And el sistema muestra el botón "Iniciar Sesion" al final del formulario
 
         Examples: Datos de salida
+            | Usuario / Asesor | Email | Password |
+            | Ximena | ximena@gmail.com | xxxxxx |
 
-            | Calendario por semana |
-            | Lunes | Martes | Miércoles | ... | Domingo |
 
+    Scenario: El suario inicia sesion en la plataforma
 
-    Scenario: usuario busca horarios por mes
+        Given el usuario cuenta con el rol de usuario no registrado
+        When el usuario selecciona el icono de Perfil
+        And el usuario completa los campos <Usuario/Asesor>, <Email> y <Password>
+        And el usuario selecciona el boton "Iniciar Sesion" 
+        Then el sistema inicia sesion en la cuenta del usuario
+        And el sistema dirige al usuario a la pantalla principal
 
-        Given que el usuario cuenta con el rol de usuario registrado
-
-        And el sistema muestra la seccion "Asesorías" 
-
-        When el usuario selecciona el boton "Mes" 
-
-        Then el sistema muestra un <calendario por mes> con los horarios disponibles para realizar una reserva
-
-        Examples: Datos de salida
-            | Calendario por mes |
-            | Enero | Febrero | ... | Diciembre |
+        Examples: Datos de entrada
+            | Usuario/Asesor | Email | Password |
+            | Ximena | ximena@gmail.com | xxxxx |
