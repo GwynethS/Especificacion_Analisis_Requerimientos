@@ -1,15 +1,13 @@
-Feature: Grabacion de la simulación de una entrevista laboral
+Feature: Tutorial del funcionamiento de la simulacion de entrevistas
 
-    Scenario: El usuario visualiza la grabacion de la simulacion de entrevista culminada
-    
-        Given el usuario ha programado una simulacion de entrevista en la seccion "Simulacion"
-        
-        When la simulacion de entrevista ha finalizado
-        
-        And el usuario presione el boton "Ver grabacion"
-        
-        Then el sistema muestra <la grabacion de la simulacion> y el boton "Descargar"
+    Scenario: usuario visualiza el tutorial de las herramientas de la simulacion
+
+        Given el usuario posee una cuenta en la plataforma
+        And programa una simulacion de entrevista en la sección "Simulacion"
+        When la simulacion esté en proceso
+        And el usuario presione el boton "Ver tutorial"
+        Then el sistema muestra una <descripcion> por cada seccion que esta disponible durante la simulacion de entrevista
 
         Examples: Datos de salida
-            |Grabacion de la simulacion de entrevista|
-            |Descarga de la grabacion de la simulación de entrevista|
+            | Mensaje |
+            | "Las preguntas se mostraran en este recuadro encima de su camara" |
