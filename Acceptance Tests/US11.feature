@@ -1,15 +1,17 @@
-Feature: Tasa de exito de una entrevista laboral simulada
+Feature: Disponibilidad del servicio de simulacion de entrevistas
 
-    Scenario: El usuario recibe la tasa de exito de su simulacion de entrevista
-    
-        Given el usuario ha programado una simulacion de entrevista en la seccion "Simulacion"
-        
-        When finaliza la simulacion programada
-        
-        And el usuario da click en el boton "Tasa de exito"
-        
-        Then el sistema muestra <la tasa de exito de la simulacion> con respecto a las respuestas dadas por los usuarios
+    Scenario: usuario completa los campos en las opciones de la simulacion
 
-        Examples: Datos de salida
-            |Tasa de exito|
-            |Obtuvo una tasa de exito de 70% en su entrevista simulada"|
+        Given el usuario esta registrado en la plataforma
+        And le da click a la seccion "Simulacion"
+        And se muestren las opciones para programar una simulacion de entrevista
+        When el usuario termine de llenar los campos necesarios en <opciones> (cargo, empresa, distrito) y <preguntas> (total y dificultad)
+        Then se habilitara el boton "Empezar simulacion"
+
+        Examples: Datos de entrada
+            | Opciones |
+            | Cargo | Empresa | Distrito |
+
+            | Preguntas |
+            | Total | Dificultad |
+            | 7 | Intermedia |
