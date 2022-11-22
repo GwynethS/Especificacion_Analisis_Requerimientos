@@ -1,15 +1,12 @@
-Feature: Calificacion de los curriculums por otros usuarios
+Feature: Videos con tips de ayuda
 
-    Scenario: El usuario desea calificar y/o comentar la publicacion de un curriculum diseñado por otro usuario
+    Scenario: El usuario visualiza videos en la plataforma
 
-        Given el sistema muestra la seccion “Foro”
-        When el usuario seleccione la opcion "Calificar y comentar"
-        Then el usuario califica mediante un <rango de puntuacion> propuesto por la plataforma, un 
-        curriculum diseñado por otro usuario de manera opcional
-        And tambien podra realizar un <comentario> en la publicacion
-    
-        Examples: Datos de entrada
-        |Calificar curriculums|
-        |4|
-        |Comentario|
-        |Me encanta el diseño que has utilizado en tu curriculum|
+        Given el usuario selecciona la seccion “Blog”
+        When presione el boton “Videos"
+        Then el sistema muestra una serie de <videos> 
+        And el sistema muestra una barra de busqueda
+
+        Examples: Datos de salida
+            | Videos |
+            | 10 recomendaciones para mejorar tu tiempo de respuesta |
