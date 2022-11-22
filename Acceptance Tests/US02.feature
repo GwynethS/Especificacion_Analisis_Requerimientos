@@ -1,27 +1,15 @@
-Feature: Recomendaciones para expresar respuestas concretas en un corto tiempo
+Feature: Guia para la elaboracion de un curriculum
 
-    Scenario: El usuario visualiza recomendaciones para expresarse de forma breve y concisa
-        Given el usuario cuenta con el rol de usuario registrado o invitado
-        When el usuario selecciona la sección "Recomendaciones"
-        Then el sistema muestra una <serie de articulos>
-        And <videos> con tips para el usuario 
-   
-        Examples: Datos de salida
-            |Serie de articulos|Videos|
-            |"Expresa tu idea en poco tiempo"|"10 recomendaciones para mejorar tu tiempo de respuesta"|
-      
-      
-    Scenario: El usuario visualiza el reporte de feedback post-simulacion
+    Scenario: usuario accede al apartado de guia
 
-        Given el usuario cuenta con el rol de usuario registrado
-        And el sistema muestra la sección "Mis simulaciones"
-        When el usuario selecciona el botón "Ver" de una simulación registrada en el historial
-        Then el sistema muestra el <análisis del desempeño del usuario> en la simulación seleccionada
+        Given el sistema muestra la seccion “Curriculums”
+        When el usuario selecciona la opción “Guia”
+        Then el sistema muestra un <manual introductorio> donde indica detalladamente el proceso correcto para diseñar un currículum
+        And el sistema muestra un <panel de selección de plantillas> en el lado derecho de la pantalla
 
         Examples: Datos de salida
-            | Análisis de desempeño del usuario |
-            | Fecha | Hora |
-            | 15/11/2022 | 15:32 |
-            | Estimado usuario, su simulación evidenció lo siguiente: |
-            | Tiempo promedio por respuesta: 4 min |
-            | Duración de la simulación:  28 min  |
+            | Manual introductorio | 
+            | 1.- Foto: Debes colocar una foto presentable, en este área, que refleje pulcritud y carisma. |
+
+            | Plantilla predeterminada |
+            | Plantilla predeterminada 1 |
