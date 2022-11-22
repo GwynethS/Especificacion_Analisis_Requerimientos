@@ -1,38 +1,16 @@
-Feature: Reportar usuarios en una asesoria
+Feature: Asesor ingresa a la asesoria virtual 
 
-    Scenario: asesor visualiza formulario “Informe”.
+    Scenario: El asesor visualiza los detalles de la asesoria
 
-        Given que el asesor se encuentra en la sala de videoconferencia de la asesoria
-
-        When el asesor selecciona el boton “Reportar”
-
-        Then el sistema muestra un formulario <Informe> con los campos <Nombre usuario> y <Descripcion del caso> los cuales son requeridos
-
-        Examples: Datos de salida
-            | Informe |
-            | Nombre usuario | Descripcion del caso |
+        Given el asesor cuenta con el rol de asesor registrado
+        When el asesor selecciona el botón "Ver" en la sección de "Asesorias Programadas"
+        Then el sistema muestra un cuadro "Detalles de la asesoria" con la fecha y datos del usuario
+        And el sistema muestra el botón "Ir a la sala" en la parte inferior del cuadro "Detalles de la asesoria"
 
 
-    Scenario: asesor envia el formulario “Informe”.
+    Scenario: El asesor ingresa a la sala de asesorias
 
-        Given que el sistema muestra el formulario “Informe”
-
-        And el asesor coloca el nombre del usuario en cuestion en el campo <Nombre usuario>
-
-        And el asesor coloca la descripcion de la falta en el campo <Descripcion del caso>
-
-        When el asesor selecciona el boton “Enviar” ubicado en la esquina inferior derecha del formulario
-
-        Then el sistema envia el informe
-
-        And el sistema muestra el mensaje <El informe ha sido enviado con exito Gracias por su colaboracion>
-
-        And el sistema cierra el formulario
-
-        Examples: Datos de entrada
-            | Nombre usuario | Descripcion del caso |
-            | Jeremy Velez | Uso un lenguaje inadecuado y ofensivo durante la sesion |
-
-        Examples: Datos de salida
-            |Mensaje|
-            |El informe ha sido enviado con exito. Gracias por su colaboracion|
+        Given el asesor cuenta con el rol de asesor registrado
+        And el sistema muestra el cuadro "Detalles de la asesoria"
+        When el asesor selecciona la opcion “Ir a la sala”
+        Then el sistema redirige al asesor a la sala de videoconferencias
