@@ -1,13 +1,16 @@
-Feature: Formato para la elaboracion de reportes de la asesoria
+Feature: Horarios de las sesiones programadas por los usuarios
 
-    Scenario: asesor visualiza formulario “Plantilla para el reporte”.
+    Scenario: El asesor visualiza horarios de las asesorias
 
-        Given que el asesor se encuentra en la sala de videoconferencia de la asesoria
-
-        When el asesor selecciona el boton “Plantilla”
-
-        Then el sistema muestra un formulario <Plantilla para el reporte> con los campos <Nombre de usuario>, <Fortalezas>, <Debilidades>, <Puntos de mejora>, <Recomendaciones> los cuales son requeridos.
+        Given el asesor se encuentra registrado en la plataforma
+        When el asesor inicia sesion en su cuenta
+        Then el sistema muestra un listado con las <Asesorias programadas>  mas proximas a la fecha seleccionada
+        And el sistema muestra un <calendario mensual> en la esquina inferior derecha de la pantalla
 
         Examples: Datos de salida
-            |Plantilla para el reporte|
-            | Nombre de usuario | Fortalezas | Debilidades| Puntos de mejora | Recomendaciones |
+            | Asesorias programadas |
+            | Fecha | Hora | Estado |
+            | 14/11/2022 | 15:00 - 16:00 | Pendiente |
+
+            | Calendario mensual |
+            | Enero | Febrero | Marzo | ... | Diciembre |
