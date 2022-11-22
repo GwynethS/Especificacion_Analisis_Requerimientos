@@ -1,30 +1,20 @@
-Feature: Horarios de las sesiones programadas por los usuarios
+Feature: Guardar reporte de desempeño del usuario
 
-    Scenario: asesor visualiza horarios por semana.
+    Scenario: El usuario visualiza el reporte de desempeño.
 
-        Given que el asesor cuenta con el rol de asesor registrado
-
-        When el asesor selecciona la seccion “Sesiones programadas”
-
-        Then el sistema muestra un <calendario semanal> con las reservas hechas por los usuarios
-
-        And el sistema muestra dos botones “Semana” y “Mes” en la esquina superior derecha de la pantalla
+        Given el usuario asiste a la asesoria virtual
+        When finaliza la asesoria
+        And el usuario selecciona el boton "Ver" de la seccion "Culminadas"
+        Then el sistema muestra una ventana “Reporte” con el <reporte de desempeño> elaborado por el asesor
+        And el sistema muestra un boton “Descargar Reporte” en la parte inferior derecha de la pantalla
 
         Examples: Datos de salida
-            | Calendario semanal |
-            | Lunes | Martes | Miércoles | ... | Domingo |
+            | Reporte de desempeño |
+            | Fortalezas | Debilidades | Puntos de mejora | Recomendaciones |
 
 
-    Scenario: asesor visualiza horarios por mes.
+    Scenario: El usuario guarda el reporte de desempeño.
 
-        Given que el asesor cuenta con el rol de asesor registrado
-
-        And el sistema muestra la seccion “Sesiones programadas”
-
-        When el asesor selecciona el boton “Mes”
-
-        Then el sistema muestra un <calendario mensual> con las reservas hechas por los usuarios
-
-        Examples: Datos de salida
-            | Calendario mensual |
-            | Enero | Febrero | ... | Diciembre |
+        Given el sistema muestra la ventana “Reporte”
+        When el usuario selecciona el boton “Descargar Reporte”
+        Then el sistema inicia la descarga del reporte en el dispositivo del usuario
