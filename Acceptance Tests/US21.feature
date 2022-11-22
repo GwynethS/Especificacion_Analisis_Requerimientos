@@ -1,15 +1,24 @@
-Feature: Ingreso a la asesoria virtual
+Feature: Notificacion de la asesoria programada
 
-    Scenario: usuario ingresa a la asesoria
+    Scenario: El usuario activa las notificaciones de reserva
 
-        Given que el usuario cuenta con el rol de usuario registrado
-
+        Given el usuario cuenta con el rol de usuario registrado
         And selecciona el icono de su perfil
+        And el usuario se dirige al apartado “Notificaciones”
+        When el usuario activa la casilla con el enunciado <Enviar correo de recordatorios 10 min antes de la reserva>
+        Then el sistema guarda los cambios en la configuracion del usuario
 
-        And el usuario selecciona la opcion “Mis reservas”
+        Examples: Datos de entrada
+            | Deseo recibir notificaciones cuando tenga una asesoria virtual programada | True | False |
 
-        And el usuario selecciona los 3 puntos de la esquina superior derecha de la sesion a la que quiere conectarse
 
-        When el usuario selecciona la opcion “Ingresar a la sala”
+    Scenario: El usuario recibe notificacion de la asesoria
 
-        Then el sistema redirige al usuario a la sala de videoconferencias
+        Given el usuario cuenta con el rol de usuario registrado
+        And el usuario tiene una reserva programada
+        And el usuario activo las notificaciones
+        When faltan 10 minutos para que empiece la asesoria
+        Then el sistema envia una <notificacion> al correo del usuario registrado en su cuenta
+
+        Examples: Datos de salida
+            | Tu asesoria empezara en 10 minutos. Te esperamos. |
