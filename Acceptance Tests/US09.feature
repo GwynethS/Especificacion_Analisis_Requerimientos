@@ -4,7 +4,8 @@ Feature: Articulos de recomendaciones
 
         Given el usuario selecciona la seccion “Blog”
         When presione el boton “Articulos"
-        Then el sistema muestra una serie de <articulos> y una barra de busqueda
+        Then el sistema muestra una serie de <articulos> 
+        And el sistema muestra una barra de busqueda
 
         Examples: Datos de salida
             | Articulos |
