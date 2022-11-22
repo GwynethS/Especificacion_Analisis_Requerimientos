@@ -1,33 +1,28 @@
-Feature: Reservacion de una asesoria virtual
+Feature: Registro de usuario en la plataforma
 
-    Scenario: usuario visualiza los detalles de la asesoria
+    Scenario: El uusuario visualiza el formulario de registro en la plataforma
 
-        Given que el sistema muestra la sección “Asesorias”
-
-        When el usuario selecciona un horario
-
-        Then el sistema muestra un cuadro <Detalles de la asesoria> con los datos del asesor <foto>, <nombres y apellidos>, <grado academico>, <centro de estudios>, <calificacion>
-
-        And el sistema muestra un boton “Reservar” en la esquina inferior derecha del cuadro “Detalles de la asesoría”
+        Given el usuario cuenta con el rol de usuario no registrado
+        When el usuario selecciona el icono de Perfil
+        And el usuario selecciona la opcion "Registrate aqui"
+        Then el sistema muestra un formulario "Crear una cuenta" con los campos <Nombres>, <Apellidos>, <Email> y <Password> los cuales son requeridos
 
         Examples: Datos de salida
-            |Detalles de la asesoria|
-            | Foto | Nombres y apellidos | Grado academico | Centro de estudios | Calificacion |
-            | img1.jpg | Juan Flores Tapia | Magister | PUCP | 4.3 |
+            | Crear una cuenta |
+            | Nombres | Apellidos | Email | Password |
+            | Ximena | Gutierrez | ximena@gmail.com | xxxxxxx |
 
 
-    Scenario: usuario reserva una asesoria
+    Scenario: El usuario se registra en la plataforma
 
-        Given que el sistema muestra el cuadro “Detalles de la asesoria”
+        Given el usuario cuenta con el rol de usuario no registrado
+        When el usuario selecciona el icono de Perfil 
+        And el usuario selecciona la opcion "Registrate aqui"
+        And el usuario completa los campos <Nombres>, <Apellidos>, <Email> y <Password>
+        And el usuario selecciona el boton "Registrarse"
+        Entonces el sistema crea la cuenta del usuario en la plataforma
+        And el sistema dirige al usuario a la pantalla principal
 
-        When el usuario selecciona el boton “Reservar”
-
-        Then el sistema reserva el horario seleccionado por el usuario
-
-        And el sistema muestra el mensaje <Su reserva se ha realizado con exito>
-
-        And el sistema cierra el cuadro “Detalles de la asesoria”
-
-        Examples: Datos de salida
-            | Mensaje |
-            | Su reserva se ha realizado con exito |
+        Examples: Datos de entrada
+            | Nombres | Apellidos | Email | Password |
+            | Ximena | Gutierrez | ximena@gmail.com | xxxxxxx |
