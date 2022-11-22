@@ -1,11 +1,25 @@
-Feature: Plantillas para el desarrollo de un curriculum
+Feature: Edicion del curriculum
 
-    Scenario: El usuario desea descargar su respectivo curriculum
+    Scenario: usuario edita currículum desde la seccion "Plantillas"
 
-        Given el sistema muestra la seccion “Curriculums”
-        When el usuario selecciona la opcion “Plantillas”
-        Then el sistema muestra diversas <plantillas predeterminadas> para un uso eficaz
-        And el usuario pueda visualizar diversas estructuras que hay dentro de cada una
+        Given el usuario cuenta con el rol de usuario registrado
+        And el usuario se encuentra en la sección "Curriculums"
+        And el usuario selecciona la opción "Plantillas"
+        When el usuario selecciona una plantilla de la plataforma
+        And el usuario selecciona el botón "Editar"
+        Then el sistema dirige al usuario al <area de edición del curriculum>
 
         Examples: Datos de salida
-        |Plantillas para curriculums|
+            | Area de edicion del curriculum |
+            
+            
+    Scenario: usuario edita currículum desde la seccion "Mis curriculums"
+
+        Given el usuario cuenta con el rol de usuario registrado
+        And el usuario se encuentra en la sección "Curriculums"
+        And el usuario selecciona la opción "Mis curriculums"
+        When el usuario selecciona el botón "Editar"
+        Then el sistema dirige al usuario al <area de edicion del curriculum>
+
+        Examples: Datos de salida
+            | Area de edicion del curriculum |
