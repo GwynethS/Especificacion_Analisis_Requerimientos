@@ -1,25 +1,20 @@
-Feature: Grabacion de la asesoria 
+Feature: Usuario ingresa a la asesoria virtual
 
-    Scenario: usuario graba la asesoria
+    Scenario: El usuario ingresa a la asesoria desde su perfil
 
-        Given que el usuario ingreso a la asesoria virtual
+        Given el usuario cuenta con el rol de usuario registrado
+        And selecciona el icono de su perfil
+        And el usuario selecciona la opcion “Mis reservas”
+        And el usuario da click al boton "Abrir"
+        When el usuario selecciona la opcion “Ir a la sala”
+        Then el sistema redirige al usuario a la sala de videoconferencias
 
-        When el usuario selecciona el boton “Grabar”
 
-        Then el sistema empieza a grabar la asesoria
+    Scenario: El usuario ingresa a la asesoria desde la seccion "Asesorias"
 
-    
-    Scenario: usuario reproduce la grabacion
-
-        Given que el usuario selecciona el icono de su perfil 
-
-        And el usuario selecciona la opcion “Mis reservas” 
-
-        And el usuario selecciona los 3 puntos de la esquina superior derecha de una sesion
-
-        When el usuario selecciona la opcion “Grabacion” del menu desplegable
-
-        Then el sistema reproduce la <grabacion> en una nueva pestaña
-
-        Examples: Datos de salida
-            | Grabacion de la asesoria |
+        Given el usuario cuenta con el rol de usuario registrado
+        And selecciona la seccion "Asesorias"
+        And el usuario selecciona la opcion "ver mas" en el apartado “Mis reservas”
+        And el usuario da click al boton "Abrir"
+        When el usuario selecciona la opcion “Ir a la sala”
+        Then el sistema redirige al usuario a la sala de videoconferencias
