@@ -15,3 +15,13 @@ Feature: Disponibilidad del servicio de simulacion de entrevistas
             | Preguntas |
             | Total | Dificultad |
             | 7 | Intermedia |
+            
+            
+    Scenario: usuario programa una simulacion en la plataforma
+
+        Given se habilito el boton "Empezar simulacion" ubicado en la parte inferior derecha de la pantalla
+        When el usuario lo presione
+        Then el sistema genera una <sesion de simulacion de entrevista> independientemente de la hora
+
+        Examples: Datos de salida
+            | Simulacion de entrevista |
