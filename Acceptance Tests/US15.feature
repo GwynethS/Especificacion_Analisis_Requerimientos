@@ -1,14 +1,16 @@
-Feature: Disponibilidad del servicio de simulacion de entrevistas
+Feature: Analisis automatico de las respuestas post-simulacion
 
-    Scenario: El usuario programa simulaciones sin restriccion de horario de la plataforma
-    
-        Given el usuario le da click a la seccion "Simulacion"
+    Scenario: usuario recibe el analisis automatico de sus respuestas
 
-        When el sistema muestra las opciones para programar una simulacion de entrevista
-
-        And el usuario elija el boton "Empezar simulacion"
-
-        Then el sistema crea, mayormente, <una simulacion de entrevista> independientemente de la hora
+        Given el usuario programa una simulacion de entrevista en la seccion "Simulacion" previamente
+        And responde todas las preguntas de la simulacion programada
+        When el usuario da click en el boton "Finalizar simulacion"
+        Then el sistema muestra el analisis de respuestas en "Resultados" y el boton "Descargar Analisis de respuestas"
 
         Examples: Datos de salida
-            |Simulación de entrevista|
+            | Analisis de respuestas |
+            | Estimado usuario, se le hace presente su analisis generado automaticamente |
+            | Pregunta 1 |
+            | Correccion Pregunta 1 |
+
+            | Descargar | Analisis de respuestas |
