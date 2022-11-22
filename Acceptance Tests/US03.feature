@@ -1,14 +1,11 @@
-Feature: Guia para elaborar correctamente un curriculum
+Feature: Plantillas para el desarrollo de un curriculum
 
-    Scenario: El usuario accede a la guia
-    
+    Scenario: usuario accede al apartado de plantillas
+
         Given el sistema muestra la seccion “Curriculums”
-        When el usuario selecciona la opción “Guia”
-        Then el sistema muestra un <manual introductorio> sobre 
-        como diseñar correctamente un curriculum
+        When el usuario selecciona la opcion “Plantillas”
+        Then el sistema muestra diversas <plantillas predeterminadas> para el uso del usuario
 
         Examples: Datos de salida
-            |Manual introductorio| 
-            |Mencionar oportunidades|
-            |Mencionar fortalezas|
-            |Mencionar objetivos|
+            | Plantillas predeterminadas |
+
